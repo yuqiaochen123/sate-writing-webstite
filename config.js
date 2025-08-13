@@ -1,7 +1,7 @@
 // Configuration for backend API endpoints
 const CONFIG = {
     // Set this to 'local' for development or 'deployed' for production
-    environment: 'local',
+    environment: 'deployed',
     
     // Backend URLs
     local: {
@@ -10,7 +10,7 @@ const CONFIG = {
     
     // Replace this with your actual deployed URL
     deployed: {
-        baseUrl: 'https://your-app-name.herokuapp.com'  // or your actual deployed URL
+        baseUrl: 'https://satb-writing-webstie-production.up.railway.app'
     }
 };
 
