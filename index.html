@@ -8,6 +8,7 @@
     <!-- External Libraries - Loaded locally for reliability -->
     <script src="vexflow.min.js"></script>
     <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+    <link rel="stylesheet" href="styles.css">
     
     <style>
         body {
@@ -787,6 +788,12 @@
                 <input type="range" id="tempoSlider" min="60" max="200" value="120" oninput="updateTempo(this.value)">
             </div>
             <div id="satbStaff"></div>
+            
+            <div class="export-controls">
+                <h4>Export Options</h4>
+                <button onclick="exportToPDF()" class="control-btn" style="background: #e74c3c;">📄 Export PDF</button>
+                <button onclick="exportToMusicXML()" class="control-btn" style="background: #27ae60;">🎵 Export MusicXML</button>
+            </div>
             </div>
             
         <!-- SATB Rule Validation Results -->
@@ -897,6 +904,7 @@
 
     <script src="config.js"></script>
     <script defer src="audio-player.js"></script>
+    <script defer src="tutorial.js"></script>
     <script defer src="enhanced-notation.js"></script>
     <script defer src="export-utilities.js"></script>
     <script>
