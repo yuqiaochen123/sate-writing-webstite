@@ -230,6 +230,85 @@
             background-color: #d5f4e6;
             border-left-color: #27ae60;
         }
+
+        .scoring-guide {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .scoring-guide h4 {
+            margin-top: 0;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+
+        .score-ranges {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .score-range {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+
+        .score-range.excellent {
+            background-color: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .score-range.very-good {
+            background-color: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
+
+        .score-range.good {
+            background-color: #fff3cd;
+            border-left-color: #ffc107;
+        }
+
+        .score-range.fair {
+            background-color: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .score-label {
+            font-weight: bold;
+            min-width: 130px;
+        }
+
+        .score-description {
+            font-size: 14px;
+            color: #6c757d;
+            text-align: right;
+        }
+
+        .scoring-factors {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+
+        .scoring-factors ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .scoring-factors li {
+            margin: 4px 0;
+            font-size: 14px;
+        }
         
         .progression-title {
             font-size: 18px;
@@ -337,6 +416,217 @@
             font-weight: bold;
         }
         
+        /* SATB Validation Results Styling */
+        .validation-results {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border: 2px solid #e9ecef;
+        }
+        
+        .validation-score {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .validation-score h3 {
+            color: #2c3e50;
+            margin: 0;
+        }
+        
+        #validationScore {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .validation-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .errors-section, .warnings-section, .suggestions-section {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #bdc3c7;
+        }
+        
+        .errors-section {
+            border-left-color: #e74c3c;
+        }
+        
+        .warnings-section {
+            border-left-color: #f39c12;
+        }
+        
+        .suggestions-section {
+            border-left-color: #3498db;
+        }
+        
+        .compromises-section {
+            border-left-color: #9b59b6;
+        }
+        
+        .errors-section h4 {
+            color: #e74c3c;
+            margin-top: 0;
+        }
+        
+        .warnings-section h4 {
+            color: #f39c12;
+            margin-top: 0;
+        }
+        
+        .suggestions-section h4 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        
+        .compromises-section h4 {
+            color: #9b59b6;
+            margin-top: 0;
+        }
+        
+        .compromise-explanation {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        
+        .validation-item {
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border-left: 3px solid #bdc3c7;
+        }
+        
+        .error-item {
+            border-left-color: #e74c3c;
+            background-color: #ffeaea;
+        }
+        
+        .warning-item {
+            border-left-color: #f39c12;
+            background-color: #fff3cd;
+        }
+        
+        .suggestion-item {
+            border-left-color: #3498db;
+            background-color: #e3f2fd;
+        }
+        
+        .compromise-item {
+            border-left-color: #9b59b6;
+            background-color: #f3e5f5;
+        }
+        
+        .validation-item-header {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .validation-item-location {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        
+        /* Score Breakdown Styling */
+        .score-breakdown-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .score-breakdown-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .score-breakdown {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background-color: white;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .breakdown-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .breakdown-value {
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .breakdown-value.negative {
+            color: #dc3545;
+        }
+        
+        .score-criteria {
+            border-top: 1px solid #dee2e6;
+            padding-top: 15px;
+        }
+        
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .criteria-section {
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .criteria-section strong {
+            color: #495057;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .criteria-section ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .criteria-section li {
+            margin-bottom: 4px;
+            font-size: 13px;
+            color: #6c757d;
+        }
+        
         .selected-progression {
             background-color: white;
             padding: 20px;
@@ -372,10 +662,19 @@
 
         #bassStaff, #satbStaff {
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 20px;
             background-color: white;
             border-radius: 5px;
             overflow-x: auto;
+            overflow-y: visible;
+            min-height: 300px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        #satbStaff svg {
+            max-width: none; /* Allow SVG to be wider than container */
+            height: auto;
         }
 
         #loadingIndicator {
@@ -413,7 +712,7 @@
                     <option value="F minor">F Minor</option>
                 </select>
                 <button onclick="updateKeyDisplay()" class="control-btn key-btn">Update Key</button>
-            </div>
+        </div>
         </div>
         
         <div class="key-info" id="keyInfo">Currently in: C Major</div>
@@ -425,19 +724,58 @@
                 <button onclick="addBassNote()" class="control-btn add-btn">Add Note</button>
                 <button onclick="deleteLastNote()" class="control-btn delete-btn">Delete Last</button>
                 <button onclick="clearBassLine()" class="control-btn clear-btn">Clear All</button>
-        </div>
+            </div>
             <div id="bassStaff"></div>
-        </div>
-        
+            </div>
+            
         <div class="bass-line-section">
             <h2>2. Analyze & Get Chord Progressions</h2>
             <button onclick="analyzeBassLine()" class="control-btn analyze-btn">Analyze Bass Line</button>
             <div id="loadingIndicator">Analyzing... please wait.</div>
-            </div>
-            
+        </div>
+        
         <div class="progression-suggestions" id="progressionSuggestions">
             <h2>3. Choose a Progression</h2>
             <div id="suggestionsList"></div>
+            
+            <!-- Scoring Reference Guide -->
+            <div class="scoring-guide" id="scoringGuide" style="display: none;">
+                <h4>📊 Scoring Reference Guide</h4>
+                <div class="score-ranges">
+                    <div class="score-range excellent">
+                        <span class="score-label">Excellent (120+)</span>
+                        <span class="score-description">Strong voice leading, classical progressions, perfect cadences</span>
+                    </div>
+                    <div class="score-range very-good">
+                        <span class="score-label">Very Good (100-119)</span>
+                        <span class="score-description">Good harmonic flow, minor voice leading issues</span>
+                    </div>
+                    <div class="score-range good">
+                        <span class="score-label">Good (80-99)</span>
+                        <span class="score-description">Functional harmony, some awkward progressions</span>
+                    </div>
+                    <div class="score-range fair">
+                        <span class="score-label">Fair (Below 80)</span>
+                        <span class="score-description">Basic functionality, may have unusual or weak progressions</span>
+                    </div>
+                </div>
+                <div class="scoring-factors">
+                    <p><strong>Factors that improve scores:</strong></p>
+                    <ul>
+                        <li>Strong progressions (V→I, IV→V, ii→V)</li>
+                        <li>Proper cadences (authentic, plagal)</li>
+                        <li>Circle of fifths progressions</li>
+                        <li>Classical harmonic rhythm</li>
+                    </ul>
+                    <p><strong>Factors that lower scores:</strong></p>
+                    <ul>
+                        <li>Weak progressions (I→ii, vi→iii)</li>
+                        <li>Unusual chord sequences</li>
+                        <li>Lack of tonal direction</li>
+                        <li>Too many inversions</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         
         <div class="satb-output" id="satbOutput">
@@ -450,8 +788,114 @@
             </div>
             <div id="satbStaff"></div>
             </div>
+            
+        <!-- SATB Rule Validation Results -->
+        <div class="validation-results" id="validationResults" style="display: none;">
+            <h2>5. SATB Rule Analysis</h2>
+            <div class="validation-score">
+                <h3>Overall Score: <span id="validationScore">--</span>/100</h3>
+                <button id="scoreBreakdownBtn" class="score-breakdown-btn" onclick="toggleScoreBreakdown()" style="display: none;">
+                    📊 Show Score Breakdown
+                </button>
+                <div id="scoreBreakdown" class="score-breakdown" style="display: none;">
+                    <h4>Score Calculation Details:</h4>
+                    <div class="breakdown-grid">
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Base Score:</span>
+                            <span id="baseScore" class="breakdown-value">100</span>
+                </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Errors (-20 each):</span>
+                            <span id="errorDeductions" class="breakdown-value">-0</span>
+                </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Warnings (-5 each):</span>
+                            <span id="warningDeductions" class="breakdown-value">-0</span>
+                </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Voice Leading Quality:</span>
+                            <span id="voiceLeadingScore" class="breakdown-value">+0</span>
+                </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Compromises (-5 to -15 each):</span>
+                            <span id="compromiseDeductions" class="breakdown-value">-0</span>
+            </div>
+                        <div class="breakdown-item">
+                            <span class="breakdown-label">Harmonic Progression:</span>
+                            <span id="harmonicScore" class="breakdown-value">+0</span>
         </div>
-        
+                    </div>
+                    <div class="score-criteria">
+                        <h5>Scoring Criteria:</h5>
+                        <div class="criteria-grid">
+                            <div class="criteria-section">
+                                <strong>Errors (-20 points each):</strong>
+                                <ul>
+                                    <li>Parallel fifths/octaves/unisons</li>
+                                    <li>Voice crossing</li>
+                                    <li>Voice range violations</li>
+                                    <li>Incomplete chords (missing 3rd/5th)</li>
+                                    <li>Large melodic leaps (>octave)</li>
+                                </ul>
+                            </div>
+                            <div class="criteria-section">
+                                <strong>Warnings (-5 points each):</strong>
+                                <ul>
+                                    <li>Wide voice spacing (>octave)</li>
+                                    <li>Unresolved tendency tones</li>
+                                    <li>Doubled leading tones</li>
+                                    <li>Poor chord spacing</li>
+                                    <li>Moderate melodic leaps</li>
+                                </ul>
+                            </div>
+                            <div class="criteria-section">
+                                <strong>Compromises (-5 to -15 each):</strong>
+                                <ul>
+                                    <li>Forced parallel motion (-15)</li>
+                                    <li>High algorithm cost (-15)</li>
+                                    <li>Moderate voice leading issues (-10)</li>
+                                    <li>Minor spacing compromises (-5)</li>
+                                    <li>Bass line constraints (-5 to -15)</li>
+                                </ul>
+                            </div>
+                            <div class="criteria-section">
+                                <strong>Quality Bonuses:</strong>
+                                <ul>
+                                    <li>Smooth voice leading (+1-3)</li>
+                                    <li>Proper doubling (+1-2)</li>
+                                    <li>Good chord progressions (+1-5)</li>
+                                    <li>Effective cadences (+2-5)</li>
+                                    <li>Contrary motion (+1-2)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="validation-content">
+                <div class="errors-section" id="errorsSection" style="display: none;">
+                    <h4>❌ Errors Found:</h4>
+                    <ul id="errorsList"></ul>
+                </div>
+                <div class="warnings-section" id="warningsSection" style="display: none;">
+                    <h4>⚠️ Warnings:</h4>
+                    <ul id="warningsList"></ul>
+                </div>
+                <div class="suggestions-section">
+                    <h4>💡 Suggestions:</h4>
+                    <ul id="suggestionsList"></ul>
+                </div>
+                <div class="compromises-section" id="compromisesSection" style="display: none;">
+                    <h4>⚖️ Algorithm Compromises:</h4>
+                    <div class="compromise-explanation">
+                        <p>Sometimes the algorithm must violate ideal SATB rules to accommodate your bass line and chord choices. These compromises explain why certain violations were necessary:</p>
+                    </div>
+                    <ul id="compromisesList"></ul>
+                </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
     <script defer src="audio-player.js"></script>
     <script defer src="enhanced-notation.js"></script>
     <script defer src="export-utilities.js"></script>
@@ -555,6 +999,10 @@
             drawBassLine();
             document.getElementById('progressionSuggestions').style.display = 'none';
             document.getElementById('satbOutput').style.display = 'none';
+            document.getElementById('validationResults').style.display = 'none';
+            document.getElementById('compromisesSection').style.display = 'none';
+            document.getElementById('scoreBreakdownBtn').style.display = 'none';
+            document.getElementById('scoreBreakdown').style.display = 'none';
         }
         
         function updateKeyDisplay() {
@@ -569,6 +1017,10 @@
             // Clear any existing progressions since they're no longer valid for the new key
             document.getElementById('progressionSuggestions').style.display = 'none';
             document.getElementById('satbOutput').style.display = 'none';
+            document.getElementById('validationResults').style.display = 'none';
+            document.getElementById('compromisesSection').style.display = 'none';
+            document.getElementById('scoreBreakdownBtn').style.display = 'none';
+            document.getElementById('scoreBreakdown').style.display = 'none';
             currentProgression = null;
             satbHarmonization = null;
             currentProgressionSuggestions = [];
@@ -660,7 +1112,7 @@
             document.getElementById('loadingIndicator').style.display = 'block';
 
             // Call the backend API
-            fetch('http://127.0.0.1:5000/analyze_bassline', {
+            fetch(getBackendUrl() + '/analyze_bassline', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -734,6 +1186,10 @@
             
             listDiv.innerHTML = html;
             suggestionsDiv.style.display = 'block';
+            
+            // Show the scoring guide
+            const scoringGuide = document.getElementById('scoringGuide');
+            scoringGuide.style.display = 'block';
         }
 
         function selectProgression(index) {
@@ -750,7 +1206,7 @@
             // Call backend to generate SATB harmonization
             const basslengths = bassLine.slice(0, currentProgression.romanNumerals.length);
             
-            fetch('http://127.0.0.1:5000/realize_satb', {
+            fetch(getBackendUrl() + '/realize_satb', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -766,12 +1222,17 @@
                 if (data.error) {
                     console.error('SATB Error:', data.error);
                     alert('Error generating SATB: ' + data.error);
-                    return;
-                }
-                
+                return;
+            }
+            
                 // Convert backend format to frontend format
                 satbHarmonization = convertSATBResponse(data.satb_harmonization);
                 displaySATBHarmonization(satbHarmonization);
+                
+                // Display validation results
+                if (data.validation) {
+                    displayValidationResults(data.validation);
+                }
             })
             .catch(error => {
                 console.error('Error calling SATB backend:', error);
@@ -781,7 +1242,7 @@
         
         function convertSATBResponse(backendSATB) {
             // Convert backend SATB format to frontend format
-            return {
+                return {
                 soprano: backendSATB.map(chord => chord.soprano),
                 alto: backendSATB.map(chord => chord.alto),
                 tenor: backendSATB.map(chord => chord.tenor),
@@ -789,7 +1250,196 @@
             };
         }
         
-        async function playCurrentSATB() {
+        function displayValidationResults(validation) {
+            const validationDiv = document.getElementById('validationResults');
+            const scoreSpan = document.getElementById('validationScore');
+            const errorsSection = document.getElementById('errorsSection');
+            const warningsSection = document.getElementById('warningsSection');
+            const compromisesSection = document.getElementById('compromisesSection');
+            const errorsList = document.getElementById('errorsList');
+            const warningsList = document.getElementById('warningsList');
+            const suggestionsList = document.getElementById('suggestionsList');
+            const compromisesList = document.getElementById('compromisesList');
+            
+            // Show the validation section
+            validationDiv.style.display = 'block';
+            
+            // Update score with color coding
+            scoreSpan.textContent = validation.score;
+            if (validation.score >= 80) {
+                scoreSpan.style.color = '#27ae60'; // Green
+            } else if (validation.score >= 60) {
+                scoreSpan.style.color = '#f39c12'; // Orange
+            } else {
+                scoreSpan.style.color = '#e74c3c'; // Red
+            }
+            
+            // Show score breakdown button and update breakdown details
+            const scoreBreakdownBtn = document.getElementById('scoreBreakdownBtn');
+            scoreBreakdownBtn.style.display = 'block';
+            updateScoreBreakdown(validation);
+            
+            // Clear previous results
+            errorsList.innerHTML = '';
+            warningsList.innerHTML = '';
+            suggestionsList.innerHTML = '';
+            compromisesList.innerHTML = '';
+            
+            // Display errors
+            const errors = validation.errors.filter(e => e.severity === 'error');
+            if (errors.length > 0) {
+                errorsSection.style.display = 'block';
+                errors.forEach(error => {
+                    const li = document.createElement('li');
+                    li.className = 'validation-item error-item';
+                    li.innerHTML = `
+                        <div class="validation-item-header">${error.description}</div>
+                        <div class="validation-item-location">${error.location} - ${error.voice || ''}</div>
+                    `;
+                    errorsList.appendChild(li);
+                });
+            } else {
+                errorsSection.style.display = 'none';
+            }
+            
+            // Display warnings  
+            const warnings = validation.errors.filter(e => e.severity === 'warning');
+            if (warnings.length > 0) {
+                warningsSection.style.display = 'block';
+                warnings.forEach(warning => {
+                    const li = document.createElement('li');
+                    li.className = 'validation-item warning-item';
+                    li.innerHTML = `
+                        <div class="validation-item-header">${warning.description}</div>
+                        <div class="validation-item-location">${warning.location} - ${warning.voice || ''}</div>
+                    `;
+                    warningsList.appendChild(li);
+                });
+            } else {
+                warningsSection.style.display = 'none';
+            }
+            
+            // Display suggestions
+            if (validation.suggestions && validation.suggestions.length > 0) {
+                validation.suggestions.forEach(suggestion => {
+                    const li = document.createElement('li');
+                    li.className = 'validation-item suggestion-item';
+                    li.innerHTML = `<div class="validation-item-header">${suggestion}</div>`;
+                    suggestionsList.appendChild(li);
+                });
+            }
+            
+            // Display algorithm compromises
+            if (validation.compromises && validation.compromises.length > 0) {
+                compromisesSection.style.display = 'block';
+                validation.compromises.forEach(compromise => {
+                    const li = document.createElement('li');
+                    li.className = 'validation-item compromise-item';
+                    li.innerHTML = `
+                        <div class="validation-item-header">${compromise.description}</div>
+                        <div class="validation-item-location">${compromise.location || ''}</div>
+                        <div style="margin-top: 8px; font-style: italic; color: #7f8c8d;">${compromise.explanation}</div>
+                    `;
+                    compromisesList.appendChild(li);
+                });
+                         } else {
+                 compromisesSection.style.display = 'none';
+             }
+         }
+         
+         function toggleScoreBreakdown() {
+             const breakdown = document.getElementById('scoreBreakdown');
+             const button = document.getElementById('scoreBreakdownBtn');
+             
+             if (breakdown.style.display === 'none') {
+                 breakdown.style.display = 'block';
+                 button.textContent = '📊 Hide Score Breakdown';
+             } else {
+                 breakdown.style.display = 'none';
+                 button.textContent = '📊 Show Score Breakdown';
+             }
+         }
+         
+         function updateScoreBreakdown(validation) {
+             // Calculate score breakdown
+             const errors = validation.errors.filter(e => e.severity === 'error');
+             const warnings = validation.errors.filter(e => e.severity === 'warning');
+             const compromises = validation.compromises || [];
+             
+             const baseScore = 100;
+             const errorDeduction = errors.length * 20;
+             const warningDeduction = warnings.length * 5;
+             
+             // Calculate compromise penalty
+             let compromiseDeduction = 0;
+             compromises.forEach(compromise => {
+                 if (compromise.severity === 'high') {
+                     compromiseDeduction += 15;
+                 } else if (compromise.severity === 'medium') {
+                     compromiseDeduction += 10;
+                 } else {
+                     compromiseDeduction += 5;
+                 }
+             });
+             
+             const voiceLeadingBonus = calculateVoiceLeadingBonus(validation);
+             const harmonicBonus = calculateHarmonicBonus(validation);
+             
+             // Update breakdown display
+             document.getElementById('baseScore').textContent = baseScore;
+             
+             const errorSpan = document.getElementById('errorDeductions');
+             errorSpan.textContent = errorDeduction > 0 ? `-${errorDeduction}` : '0';
+             errorSpan.className = errorDeduction > 0 ? 'breakdown-value negative' : 'breakdown-value';
+             
+             const warningSpan = document.getElementById('warningDeductions');
+             warningSpan.textContent = warningDeduction > 0 ? `-${warningDeduction}` : '0';
+             warningSpan.className = warningDeduction > 0 ? 'breakdown-value negative' : 'breakdown-value';
+             
+             const compromiseSpan = document.getElementById('compromiseDeductions');
+             compromiseSpan.textContent = compromiseDeduction > 0 ? `-${compromiseDeduction}` : '0';
+             compromiseSpan.className = compromiseDeduction > 0 ? 'breakdown-value negative' : 'breakdown-value';
+             
+             document.getElementById('voiceLeadingScore').textContent = voiceLeadingBonus > 0 ? `+${voiceLeadingBonus}` : '0';
+             document.getElementById('harmonicScore').textContent = harmonicBonus > 0 ? `+${harmonicBonus}` : '0';
+         }
+         
+         function calculateVoiceLeadingBonus(validation) {
+             // Award bonus points for good voice leading
+             let bonus = 0;
+             
+             // No errors = good voice leading
+             const errors = validation.errors.filter(e => e.severity === 'error');
+             if (errors.length === 0) {
+                 bonus += 3; // Perfect voice leading bonus
+             }
+             
+             // Few warnings = smooth voice leading
+             const warnings = validation.errors.filter(e => e.severity === 'warning');
+             if (warnings.length <= 1) {
+                 bonus += 2; // Smooth voice leading bonus
+             }
+             
+             return Math.min(bonus, 5); // Cap at +5
+         }
+         
+         function calculateHarmonicBonus(validation) {
+             // Award bonus for good harmonic progressions
+             let bonus = 0;
+             
+             // If score is high overall, award harmonic bonus
+             if (validation.score >= 90) {
+                 bonus += 3; // Excellent harmonic progression
+             } else if (validation.score >= 80) {
+                 bonus += 2; // Good harmonic progression
+             } else if (validation.score >= 70) {
+                 bonus += 1; // Decent harmonic progression
+             }
+             
+             return Math.min(bonus, 5); // Cap at +5
+         }
+         
+         async function playCurrentSATB() {
             if (!satbHarmonization) {
                 alert('No SATB harmonization available to play!');
                 return;
@@ -845,15 +1495,17 @@
             
             const notesPerMeasure = 4;
             const numMeasures = Math.ceil(voices.soprano.length / notesPerMeasure);
-            const measuresPerLine = 4;
+            const measuresPerLine = Math.min(2, numMeasures); // Fewer measures per line to prevent overlap
             const numLines = Math.ceil(numMeasures / measuresPerLine);
             
-            const measureWidth = 180;
-            const clefWidth = 60;
-            const systemHeight = 220;
+            const measureWidth = 350; // Much wider measures to prevent bar line overlap
+            const clefWidth = 120;    // More space for clefs and signatures  
+            const systemHeight = 300; // Taller for better readability
+            const rightMargin = 100;  // Extra margin on the right
             
-            const totalWidth = clefWidth + (Math.min(numMeasures, measuresPerLine) * measureWidth) + 40;
-            const totalHeight = (systemHeight * numLines);
+            // Calculate width to fit all measures on each line
+            const totalWidth = clefWidth + (measuresPerLine * measureWidth) + rightMargin;
+            const totalHeight = (systemHeight * numLines) + 40; // Extra bottom margin
 
             renderer.resize(totalWidth, totalHeight);
             const context = renderer.getContext();
@@ -874,13 +1526,13 @@
             let currentY = 40;
 
             for (let line = 0; line < numLines; line++) {
-                let currentX = 10;
+                let currentX = 40; // More left margin so symbols don't get cut off
                 const measuresOnThisLine = Math.min(measuresPerLine, numMeasures - (line * measuresPerLine));
 
                 for (let i = 0; i < measuresOnThisLine; i++) {
                     const measureIndex = (line * measuresPerLine) + i;
                     const isFirstMeasureOnLine = (i === 0);
-                    const staveWidth = isFirstMeasureOnLine ? measureWidth + clefWidth : measureWidth;
+                    const staveWidth = measureWidth; // Consistent width for all measures
 
                     const trebleStave = new Stave(currentX, currentY, staveWidth);
                     const bassStave = new Stave(currentX, currentY + 100, staveWidth);
@@ -904,26 +1556,48 @@
                     const noteEnd = Math.min(noteStart + notesPerMeasure, voices.soprano.length);
                     
                     if (noteEnd > noteStart) {
-                        const sopranoMeasure = voices.soprano.slice(noteStart, noteEnd).map(n => createVexNote(n, 'treble'));
-                        const altoMeasure = voices.alto.slice(noteStart, noteEnd).map(n => createVexNote(n, 'treble'));
-                        const tenorMeasure = voices.tenor.slice(noteStart, noteEnd).map(n => createVexNote(n, 'bass'));
-                        const bassMeasure = voices.bass.slice(noteStart, noteEnd).map(n => createVexNote(n, 'bass'));
+                        const sopranoMeasure = voices.soprano.slice(noteStart, noteEnd).map(n => {
+                            const note = createVexNote(n, 'treble');
+                            note.setStemDirection(1); // Stems up
+                            return note;
+                        });
+                        const altoMeasure = voices.alto.slice(noteStart, noteEnd).map(n => {
+                            const note = createVexNote(n, 'treble');
+                            note.setStemDirection(-1); // Stems down
+                            return note;
+                        });
+                        const tenorMeasure = voices.tenor.slice(noteStart, noteEnd).map(n => {
+                            const note = createVexNote(n, 'bass');
+                            note.setStemDirection(1); // Stems up
+                            return note;
+                        });
+                        const bassMeasure = voices.bass.slice(noteStart, noteEnd).map(n => {
+                            const note = createVexNote(n, 'bass');
+                            note.setStemDirection(-1); // Stems down
+                            return note;
+                        });
 
                         const beatsInMeasure = sopranoMeasure.length;
                         if (beatsInMeasure > 0) {
+                            // Set proper voice modes to prevent overlap
                             const allVoices = [
-                                new Voice({ num_beats: beatsInMeasure, beat_value: 4 }).addTickables(sopranoMeasure),
-                                new Voice({ num_beats: beatsInMeasure, beat_value: 4 }).addTickables(altoMeasure),
-                                new Voice({ num_beats: beatsInMeasure, beat_value: 4 }).addTickables(tenorMeasure),
-                                new Voice({ num_beats: beatsInMeasure, beat_value: 4 }).addTickables(bassMeasure)
+                                new Voice({ num_beats: beatsInMeasure, beat_value: 4 }).setMode(Voice.Mode.SOFT).addTickables(sopranoMeasure),
+                                new Voice({ num_beats: beatsInMeasure, beat_value: 4 }).setMode(Voice.Mode.SOFT).addTickables(altoMeasure),
+                                new Voice({ num_beats: beatsInMeasure, beat_value: 4 }).setMode(Voice.Mode.SOFT).addTickables(tenorMeasure),
+                                new Voice({ num_beats: beatsInMeasure, beat_value: 4 }).setMode(Voice.Mode.SOFT).addTickables(bassMeasure)
                             ];
                             
-                            new Formatter().joinVoices(allVoices).format(allVoices, measureWidth - 20);
+                            // Use maximum spacing to prevent overlap with bar lines
+                            const formattingWidth = measureWidth - 80; // Leave space for bar lines but not too much
+                            const formatter = new Formatter();
+                            formatter.joinVoices(allVoices);
+                            formatter.format(allVoices, formattingWidth);
                             
-                            allVoices[0].draw(context, trebleStave);
-                            allVoices[1].draw(context, trebleStave);
-                            allVoices[2].draw(context, bassStave);
-                            allVoices[3].draw(context, bassStave);
+                            // Draw voices with proper stem directions
+                            allVoices[0].draw(context, trebleStave); // Soprano - stems up
+                            allVoices[1].draw(context, trebleStave); // Alto - stems down  
+                            allVoices[2].draw(context, bassStave);   // Tenor - stems up
+                            allVoices[3].draw(context, bassStave);   // Bass - stems down
                         }
                     }
                     currentX += staveWidth;
