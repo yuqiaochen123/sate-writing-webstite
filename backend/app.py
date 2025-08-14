@@ -1155,9 +1155,13 @@ def generate_ai_music():
         if not chord_progression:
             return jsonify({'error': 'No chord progression provided'}), 400
         
-        # Set up Replicate API key
-        api_key = os.environ.get('REPLICATE_API_KEY') or os.environ.get('REPLICATE_API_TOKEN')
+        # Set up Replicate API key - try multiple possible environment variable names
+        api_key = (os.environ.get('REPLICATE_API_KEY') or 
+                  os.environ.get('REPLICATE_API_TOKEN') or
+                  os.environ.get('REPLICATE_TOKEN'))
+        
         if not api_key:
+            print(f"Available environment variables: {list(os.environ.keys())}")
             return jsonify({'error': 'Replicate API key not configured'}), 500
         
         # Set the API key for replicate
