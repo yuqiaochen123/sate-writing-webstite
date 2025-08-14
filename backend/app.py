@@ -874,6 +874,18 @@ def health_check():
     """Simple health check endpoint."""
     return jsonify({'status': 'healthy'})
 
+@app.route('/debug-env', methods=['GET'])
+def debug_env():
+    """Debug endpoint to see what environment variables are available"""
+    env_vars = {}
+    for key, value in os.environ.items():
+        if 'REPLICATE' in key or 'API' in key:
+            env_vars[key] = value
+    return jsonify({
+        'replicate_vars': env_vars,
+        'all_keys': list(os.environ.keys())
+    })
+
 def validate_satb_rules(satb_data, chord_progression, key_name, compromises=None):
     """Comprehensive SATB rule validation with specific error identification and solutions."""
     
