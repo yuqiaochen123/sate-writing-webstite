@@ -2229,14 +2229,10 @@
                 <h2>4. AI-Generated Instrumental Composition</h2>
                 
                 <div class="composition-info">
-                    <h3>AI-Generated Instrumental Piece</h3>
-                    <div class="composition-details">
-                        <p><strong>Progression:</strong> ${compositionData.chord_progression.join(' - ')}</p>
-                        <p><strong>Key:</strong> ${compositionData.key}</p>
-                        <p><strong>Duration:</strong> 30 seconds</p>
-                        <p><strong>Style:</strong> Instrumental</p>
-                        <p><strong>Description:</strong> ${compositionData.prompt}</p>
-                    </div>
+                    <p><strong>Progression:</strong> ${compositionData.chord_progression.join(' - ')}</p>
+                    <p><strong>Key:</strong> ${compositionData.key}</p>
+                    <p><strong>Duration:</strong> 30 seconds</p>
+                    <p><strong>Description:</strong> ${compositionData.prompt}</p>
                 </div>
                 
                 <div class="ai-audio-controls">
@@ -2244,24 +2240,11 @@
                         <source src="${compositionData.audio_url}" type="audio/mpeg">
                         Your browser does not support the audio element.
                     </audio>
-                    <div class="audio-buttons">
-                        <button onclick="downloadAIComposition()" class="control-btn">📥 Download MP3</button>
-                        <button onclick="shareAIComposition()" class="control-btn">🔗 Share Link</button>
-                    </div>
                 </div>
                 
-                <div class="ai-notation-display">
-                    <h4>Generated Music</h4>
-                    <div class="score-preview">
-                        <p><em>This AI-generated piece was created using Meta's MusicGen model, inspired by your chord progression.</em></p>
-                        <p><strong>Technical Details:</strong></p>
-                        <ul>
-                            <li>Model: MusicGen (Meta AI)</li>
-                            <li>Format: MP3</li>
-                            <li>Quality: High-fidelity stereo</li>
-                            <li>Generation: Real-time AI composition</li>
-                        </ul>
-                    </div>
+                <div class="ai-export-controls">
+                    <button onclick="downloadAIComposition()" class="control-btn">📥 Download MP3</button>
+                    <button onclick="shareAIComposition()" class="control-btn">🔗 Share Link</button>
                 </div>
                 
                 <div class="back-to-branches">
