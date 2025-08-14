@@ -1186,7 +1186,6 @@ def generate_ai_music():
         # Use MusicGen model for music generation
         output = replicate.run(
             "meta/musicgen:671ac645ce5e552cc63a54a2bbff63fcf798043055d2dac5fc9e36a837eedcfb",
-            api_token=api_key,
             input={
                 "prompt": prompt,
                 "duration": 10,  # Reduced from 30 to 10 seconds for faster generation
