@@ -5,7 +5,7 @@ const CONFIG = {
     
     // Backend URLs
     local: {
-        baseUrl: 'http://127.0.0.1:5001'
+        baseUrl: 'http://127.0.0.1:8080'
     },
     
     // Replace this with your actual deployed URL

@@ -1173,7 +1173,7 @@ def generate_ai_music():
             api_token=api_key,
             input={
                 "prompt": prompt,
-                "duration": 30,
+                "duration": 10,  # Reduced from 30 to 10 seconds for faster generation
                 "temperature": 1.0,
                 "continuation": False,
                 "model_version": "stereo-large",
@@ -1185,8 +1185,9 @@ def generate_ai_music():
             }
         )
         
-        if output and len(output) > 0:
-            audio_url = output[0]  # Get the first (and usually only) output
+        if output:
+            # Convert FileOutput to string URL
+            audio_url = str(output)
             
             return jsonify({
                 'success': True,
@@ -1203,6 +1204,6 @@ def generate_ai_music():
         return jsonify({'error': f'Error generating music: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    # Use environment variable for port (for deployment) or default to 5001
-    port = int(os.environ.get('PORT', 5001))
+    # Use environment variable for port (for deployment) or default to 8080
+    port = int(os.environ.get('PORT', 8080))
     app.run(debug=False, host='0.0.0.0', port=port) 

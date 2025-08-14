@@ -727,8 +727,8 @@
                 <button onclick="clearBassLine()" class="control-btn clear-btn">Clear All</button>
             </div>
             <div id="bassStaff"></div>
-            </div>
-            
+        </div>
+        
         <div class="bass-line-section">
             <h2>2. Analyze & Get Chord Progressions</h2>
             <button onclick="analyzeBassLine()" class="control-btn analyze-btn">Analyze Bass Line</button>
@@ -777,8 +777,8 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        
+            </div>
+            
         <!-- Composition Options Section -->
         <div class="composition-options" id="compositionOptions" style="display: none;">
             <h2>3. Choose Your Composition Path</h2>
@@ -816,9 +816,9 @@
                     <button onclick="generateAIComposition()" class="branch-btn ai-btn">
                         🤖 Generate AI Music
                     </button>
-                </div>
             </div>
-            
+        </div>
+        
             <div class="back-to-progressions">
                 <button onclick="backToProgressions()" class="back-btn">
                     ← Back to Progressions
@@ -866,7 +866,7 @@
                     <button onclick="downloadAIComposition()" class="control-btn">📥 Download MP3</button>
                     <button onclick="shareAIComposition()" class="control-btn">🔗 Share Link</button>
                 </div>
-            </div>
+                </div>
             
             <div class="ai-notation-display">
                 <h4>Generated Music</h4>
@@ -880,7 +880,7 @@
                         <li>Generation: Real-time AI composition</li>
                     </ul>
                 </div>
-            </div>
+                </div>
             
             <div class="back-to-branches">
                 <button onclick="backToCompositionOptions()" class="back-btn">
@@ -888,7 +888,7 @@
                 </button>
             </div>
         </div>
-            
+        
         <!-- SATB Rule Validation Results -->
         <div class="validation-results" id="validationResults" style="display: none;">
             <h2>5. SATB Rule Analysis</h2>
@@ -896,7 +896,7 @@
                 <h3>Overall Score: <span id="validationScore">--</span>/100</h3>
                 <button id="scoreBreakdownBtn" class="score-breakdown-btn" onclick="toggleScoreBreakdown()" style="display: none;">
                     📊 Show Score Breakdown
-                </button>
+            </button>
                 <div id="scoreBreakdown" class="score-breakdown" style="display: none;">
                     <h4>Score Calculation Details:</h4>
                     <div class="breakdown-grid">
@@ -1315,8 +1315,8 @@
                     <p><strong>Roman Numerals:</strong> ${currentProgression.romanNumerals.join(' - ')}</p>
                     <p><strong>Style:</strong> ${currentProgression.style}</p>
                     <p><strong>Score:</strong> ${currentProgression.score}</p>
-                </div>
-            `;
+                    </div>
+                `;
         }
 
         function generateSATBHarmonization() {
@@ -1473,7 +1473,7 @@
              if (breakdown.style.display === 'none') {
                  breakdown.style.display = 'block';
                  button.textContent = '📊 Hide Score Breakdown';
-             } else {
+            } else {
                  breakdown.style.display = 'none';
                  button.textContent = '📊 Show Score Breakdown';
              }
@@ -1828,7 +1828,7 @@
                         score -= 3;
                     }
                 } else if (h.includes('vii°')) {
-                    score -= 5;
+                score -= 5;
                 } else if (h.includes('6')) {
                     score -= 1;
                 }
@@ -1919,7 +1919,7 @@
                 const lastLayer = Array.from(dp[dp.length - 1].keys());
                 if (lastLayer.length > 0) {
                     bestVoicing = lastLayer[0];
-                } else {
+            } else {
                     return { voices: { soprano: [], alto: [], tenor: [], bass: [] }, midiVoices: null, errors: ['No valid progression found'], isValid: false };
                 }
             }
@@ -1965,7 +1965,7 @@
                 }
             }
             
-            return { 
+                return {
                 voices, 
                 midiVoices, 
                 errors, 
@@ -2145,7 +2145,7 @@
             const noteName = midiToNoteNameSimple[midi % 12];
             return `${noteName}${octave}`;
         }
-
+        
         function getClosestMidiInRange(targetMidi, range) {
             let currentMidi = targetMidi;
             while (currentMidi < range.min) currentMidi += 12;
@@ -2186,7 +2186,7 @@
                     <div class="loading-spinner"></div>
                     <p>🤖 AI is composing your instrumental piece...</p>
                     <p><em>Based on progression: ${currentProgression.romanNumerals.join(' - ')}</em></p>
-                    <p><small>This may take 30-60 seconds...</small></p>
+                    <p><small>This may take 1-2 minutes. Please be patient!</small></p>
                 </div>
             `;
             
@@ -2199,7 +2199,9 @@
                 body: JSON.stringify({
                     chord_progression: currentProgression.romanNumerals,
                     key: currentKey
-                })
+                }),
+                // Add timeout for AI generation (2 minutes)
+                signal: AbortSignal.timeout(120000)
             })
             .then(response => response.json())
             .then(data => {
@@ -2283,12 +2285,12 @@
         
         function downloadAIComposition() {
             if (window.currentAIAudioUrl) {
-                const link = document.createElement('a');
+            const link = document.createElement('a');
                 link.href = window.currentAIAudioUrl;
                 link.download = 'ai-generated-music.mp3';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
                 alert('Download started!');
             } else {
                 alert('No audio available to download.');
