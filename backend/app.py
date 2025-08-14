@@ -1169,7 +1169,7 @@ def generate_ai_music():
         
         # Use MusicGen model for music generation
         output = replicate.run(
-            "meta/musicgen:7be0f12c54a8e033a0fbd14418c9af98962da9a86f5ffbf1d381b528",
+            "meta/musicgen:671ac645ce5e552cc63a54a2bbff63fcf798043055d2dac5fc9e36a837eedcfb",
             input={
                 "prompt": prompt,
                 "duration": 30,
