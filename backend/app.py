@@ -1188,7 +1188,7 @@ def generate_ai_music():
             "meta/musicgen:671ac645ce5e552cc63a54a2bbff63fcf798043055d2dac5fc9e36a837eedcfb",
             input={
                 "prompt": prompt,
-                "duration": 10,  # Reduced from 30 to 10 seconds for faster generation
+                "duration": 30,  # Increased to 30 seconds for better musical pieces
                 "temperature": 1.0,
                 "continuation": False,
                 "model_version": "stereo-large",
