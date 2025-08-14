@@ -1160,6 +1160,9 @@ def generate_ai_music():
         if not api_key:
             return jsonify({'error': 'Replicate API key not configured'}), 500
         
+        # Set the API key for replicate
+        os.environ['REPLICATE_API_TOKEN'] = api_key
+        
         # Create a descriptive prompt for the AI
         progression_text = ' - '.join(chord_progression)
         prompt = f"A beautiful instrumental piece in {key_signature} with the chord progression: {progression_text}. The piece should be melodic, harmonious, and suitable for background music. Duration: 30 seconds."
