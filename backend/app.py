@@ -1156,7 +1156,7 @@ def generate_ai_music():
             return jsonify({'error': 'No chord progression provided'}), 400
         
         # Set up Replicate API key
-        api_key = os.environ.get('REPLICATE_API_KEY')
+        api_key = os.environ.get('REPLICATE_API_KEY') or os.environ.get('REPLICATE_API_TOKEN')
         if not api_key:
             return jsonify({'error': 'Replicate API key not configured'}), 500
         
