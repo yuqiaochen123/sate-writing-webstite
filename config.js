@@ -10,7 +10,7 @@ const CONFIG = {
     
     // Replace this with your actual deployed URL
     deployed: {
-        baseUrl: 'https://satb-writing-webstie-production.up.railway.app'
+        baseUrl: 'https://satb-writing-webstie-production.up.railway.app' // Will be updated to Vercel URL after deployment
     }
 };
 

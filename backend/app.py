@@ -5,6 +5,7 @@ import os
 from itertools import combinations, product
 import copy
 import itertools
+import replicate
 
 app = Flask(__name__)
 CORS(app)  # Allow cross-origin requests from your frontend
@@ -1142,6 +1143,60 @@ def validate_satb_rules(satb_data, chord_progression, key_name, compromises=None
             'score': 0,
             'suggestions': ['Try generating a new harmonization']
         }
+
+@app.route('/generate_ai_music', methods=['POST'])
+def generate_ai_music():
+    """Generate AI music based on chord progression using Replicate API."""
+    try:
+        data = request.get_json()
+        chord_progression = data.get('chord_progression', [])
+        key_signature = data.get('key', 'C major')
+        
+        if not chord_progression:
+            return jsonify({'error': 'No chord progression provided'}), 400
+        
+        # Set up Replicate API key
+        api_key = os.environ.get('REPLICATE_API_KEY')
+        if not api_key:
+            return jsonify({'error': 'Replicate API key not configured'}), 500
+        
+        # Create a descriptive prompt for the AI
+        progression_text = ' - '.join(chord_progression)
+        prompt = f"A beautiful instrumental piece in {key_signature} with the chord progression: {progression_text}. The piece should be melodic, harmonious, and suitable for background music. Duration: 30 seconds."
+        
+        # Use MusicGen model for music generation
+        output = replicate.run(
+            "meta/musicgen:7be0f12c54a8e033a0fbd14418c9af98962da9a86f5ffbf1d381b528",
+            input={
+                "prompt": prompt,
+                "duration": 30,
+                "temperature": 1.0,
+                "continuation": False,
+                "model_version": "stereo-large",
+                "output_format": "mp3",
+                "normalization_strategy": "peak",
+                "top_k": 250,
+                "top_p": 0.0,
+                "classifier_free_guidance": 3.0
+            }
+        )
+        
+        if output and len(output) > 0:
+            audio_url = output[0]  # Get the first (and usually only) output
+            
+            return jsonify({
+                'success': True,
+                'audio_url': audio_url,
+                'prompt': prompt,
+                'chord_progression': chord_progression,
+                'key': key_signature
+            })
+        else:
+            return jsonify({'error': 'No audio generated'}), 500
+            
+    except Exception as e:
+        print(f"Error generating AI music: {str(e)}")
+        return jsonify({'error': f'Error generating music: {str(e)}'}), 500
 
 if __name__ == '__main__':
     # Use environment variable for port (for deployment) or default to 5001

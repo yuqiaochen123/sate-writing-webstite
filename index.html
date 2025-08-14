@@ -779,6 +779,53 @@
             </div>
         </div>
         
+        <!-- Composition Options Section -->
+        <div class="composition-options" id="compositionOptions" style="display: none;">
+            <h2>3. Choose Your Composition Path</h2>
+            
+            <div class="selected-progression-display" id="selectedProgressionDisplay">
+                <!-- Selected progression info will be displayed here -->
+            </div>
+            
+            <div class="composition-branches">
+                <div class="branch-option satb-branch">
+                    <div class="branch-icon">🎼</div>
+                    <h3>SATB Harmonization</h3>
+                    <p>Generate traditional four-part harmony following classical voice leading rules. Perfect for choral music and music theory study.</p>
+                    <ul>
+                        <li>Classical voice leading</li>
+                        <li>SATB notation</li>
+                        <li>Rule validation</li>
+                        <li>Educational analysis</li>
+                    </ul>
+                    <button onclick="generateSATBHarmonization()" class="branch-btn satb-btn">
+                        🎼 Generate SATB
+                    </button>
+                </div>
+                
+                <div class="branch-option ai-branch">
+                    <div class="branch-icon">🤖</div>
+                    <h3>AI Instrumental Composition</h3>
+                    <p>Create a complete instrumental piece using AI, inspired by your chord progression. Perfect for original music creation.</p>
+                    <ul>
+                        <li>AI-generated melodies</li>
+                        <li>Multiple instruments</li>
+                        <li>Complete arrangements</li>
+                        <li>Modern composition</li>
+                    </ul>
+                    <button onclick="generateAIComposition()" class="branch-btn ai-btn">
+                        🤖 Generate AI Music
+                    </button>
+                </div>
+            </div>
+            
+            <div class="back-to-progressions">
+                <button onclick="backToProgressions()" class="back-btn">
+                    ← Back to Progressions
+                </button>
+            </div>
+        </div>
+        
         <div class="satb-output" id="satbOutput">
             <h2>4. View & Hear SATB Result</h2>
             <div class="audio-controls">
@@ -795,6 +842,52 @@
                 <button onclick="exportToMusicXML()" class="control-btn" style="background: #27ae60;">🎵 Export MusicXML</button>
             </div>
             </div>
+            
+        <!-- AI Composition Output Section -->
+        <div class="ai-composition-output" id="aiCompositionOutput" style="display: none;">
+            <h2>4. AI-Generated Instrumental Composition</h2>
+            <div class="composition-info">
+                <h3>AI-Generated Instrumental Piece</h3>
+                <div class="composition-details">
+                    <p><strong>Progression:</strong> <span id="aiProgression"></span></p>
+                    <p><strong>Key:</strong> <span id="aiKey"></span></p>
+                    <p><strong>Duration:</strong> 30 seconds</p>
+                    <p><strong>Style:</strong> Instrumental</p>
+                    <p><strong>Description:</strong> <span id="aiDescription"></span></p>
+                </div>
+            </div>
+            
+            <div class="ai-audio-controls">
+                <audio id="aiAudioPlayer" controls style="width: 100%; margin: 20px 0;">
+                    <source id="aiAudioSource" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="audio-buttons">
+                    <button onclick="downloadAIComposition()" class="control-btn">📥 Download MP3</button>
+                    <button onclick="shareAIComposition()" class="control-btn">🔗 Share Link</button>
+                </div>
+            </div>
+            
+            <div class="ai-notation-display">
+                <h4>Generated Music</h4>
+                <div class="score-preview">
+                    <p><em>This AI-generated piece was created using Meta's MusicGen model, inspired by your chord progression.</em></p>
+                    <p><strong>Technical Details:</strong></p>
+                    <ul>
+                        <li>Model: MusicGen (Meta AI)</li>
+                        <li>Format: MP3</li>
+                        <li>Quality: High-fidelity stereo</li>
+                        <li>Generation: Real-time AI composition</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="back-to-branches">
+                <button onclick="backToCompositionOptions()" class="back-btn">
+                    ← Back to Composition Options
+                </button>
+            </div>
+        </div>
             
         <!-- SATB Rule Validation Results -->
         <div class="validation-results" id="validationResults" style="display: none;">
@@ -1205,7 +1298,25 @@
             document.querySelectorAll('.suggestion-item')[index].classList.add('selected');
             
             currentProgression = currentProgressionSuggestions[index];
-            generateSATBHarmonization();
+            showCompositionOptions();
+        }
+        
+        function showCompositionOptions() {
+            // Hide progression suggestions and show composition options
+            document.getElementById('progressionSuggestions').style.display = 'none';
+            document.getElementById('compositionOptions').style.display = 'block';
+            
+            // Display selected progression info
+            const display = document.getElementById('selectedProgressionDisplay');
+            display.innerHTML = `
+                <div class="selected-progression-info">
+                    <h4>Selected Progression:</h4>
+                    <p><strong>${currentProgression.description}</strong></p>
+                    <p><strong>Roman Numerals:</strong> ${currentProgression.romanNumerals.join(' - ')}</p>
+                    <p><strong>Style:</strong> ${currentProgression.style}</p>
+                    <p><strong>Score:</strong> ${currentProgression.score}</p>
+                </div>
+            `;
         }
 
         function generateSATBHarmonization() {
@@ -2057,6 +2168,144 @@
                 }
             }
             return bestNote === -1 ? getClosestMidiInRange(availableNotes[0], range) : bestNote;
+        }
+
+        // AI Composition Functions
+        function generateAIComposition() {
+            if (!currentProgression) return;
+            
+            // Hide composition options and show AI composition section
+            document.getElementById('compositionOptions').style.display = 'none';
+            document.getElementById('aiCompositionOutput').style.display = 'block';
+            
+            // Show loading state
+            const aiOutput = document.getElementById('aiCompositionOutput');
+            aiOutput.innerHTML = `
+                <h2>4. AI-Generated Instrumental Composition</h2>
+                <div class="loading-state">
+                    <div class="loading-spinner"></div>
+                    <p>🤖 AI is composing your instrumental piece...</p>
+                    <p><em>Based on progression: ${currentProgression.romanNumerals.join(' - ')}</em></p>
+                    <p><small>This may take 30-60 seconds...</small></p>
+                </div>
+            `;
+            
+            // Call the real AI composition API
+            fetch(`${getBackendUrl()}/generate_ai_music`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chord_progression: currentProgression.romanNumerals,
+                    key: currentKey
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    displayAIComposition(data);
+                } else {
+                    alert('Error generating AI music: ' + (data.error || 'Unknown error'));
+                    backToCompositionOptions();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error connecting to backend for AI music generation.');
+                backToCompositionOptions();
+            });
+        }
+        
+        function displayAIComposition(compositionData) {
+            const aiOutput = document.getElementById('aiCompositionOutput');
+            
+            // Store the audio URL for playback
+            window.currentAIAudioUrl = compositionData.audio_url;
+            
+            aiOutput.innerHTML = `
+                <h2>4. AI-Generated Instrumental Composition</h2>
+                
+                <div class="composition-info">
+                    <h3>AI-Generated Instrumental Piece</h3>
+                    <div class="composition-details">
+                        <p><strong>Progression:</strong> ${compositionData.chord_progression.join(' - ')}</p>
+                        <p><strong>Key:</strong> ${compositionData.key}</p>
+                        <p><strong>Duration:</strong> 30 seconds</p>
+                        <p><strong>Style:</strong> Instrumental</p>
+                        <p><strong>Description:</strong> ${compositionData.prompt}</p>
+                    </div>
+                </div>
+                
+                <div class="ai-audio-controls">
+                    <audio id="aiAudioPlayer" controls style="width: 100%; margin: 20px 0;">
+                        <source src="${compositionData.audio_url}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="audio-buttons">
+                        <button onclick="downloadAIComposition()" class="control-btn">📥 Download MP3</button>
+                        <button onclick="shareAIComposition()" class="control-btn">🔗 Share Link</button>
+                    </div>
+                </div>
+                
+                <div class="ai-notation-display">
+                    <h4>Generated Music</h4>
+                    <div class="score-preview">
+                        <p><em>This AI-generated piece was created using Meta's MusicGen model, inspired by your chord progression.</em></p>
+                        <p><strong>Technical Details:</strong></p>
+                        <ul>
+                            <li>Model: MusicGen (Meta AI)</li>
+                            <li>Format: MP3</li>
+                            <li>Quality: High-fidelity stereo</li>
+                            <li>Generation: Real-time AI composition</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="back-to-branches">
+                    <button onclick="backToCompositionOptions()" class="back-btn">
+                        ← Back to Composition Options
+                    </button>
+                </div>
+            `;
+        }
+        
+        function backToProgressions() {
+            document.getElementById('compositionOptions').style.display = 'none';
+            document.getElementById('progressionSuggestions').style.display = 'block';
+        }
+        
+        function backToCompositionOptions() {
+            document.getElementById('aiCompositionOutput').style.display = 'none';
+            document.getElementById('satbOutput').style.display = 'none';
+            document.getElementById('compositionOptions').style.display = 'block';
+        }
+        
+        function downloadAIComposition() {
+            if (window.currentAIAudioUrl) {
+                const link = document.createElement('a');
+                link.href = window.currentAIAudioUrl;
+                link.download = 'ai-generated-music.mp3';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                alert('Download started!');
+            } else {
+                alert('No audio available to download.');
+            }
+        }
+        
+        function shareAIComposition() {
+            if (window.currentAIAudioUrl) {
+                // Copy the audio URL to clipboard
+                navigator.clipboard.writeText(window.currentAIAudioUrl).then(() => {
+                    alert('Audio link copied to clipboard!');
+                }).catch(() => {
+                    alert('Could not copy link to clipboard.');
+                });
+            } else {
+                alert('No audio available to share.');
+            }
         }
 
     </script>
