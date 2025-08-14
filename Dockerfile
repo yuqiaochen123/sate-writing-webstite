@@ -17,5 +17,5 @@ EXPOSE 8080
 # Set environment variable
 ENV PORT=8080
 
-# Start the application
-CMD ["sh", "-c", "cd backend && gunicorn app:app --bind 0.0.0.0:$PORT"]
+# Start the application with longer timeout
+CMD ["sh", "-c", "cd backend && gunicorn app:app --bind 0.0.0.0:$PORT --timeout 120 --workers 1"]
